@@ -8,7 +8,7 @@
 
 <body class="usernamebg">
    
-    <Nav >
+    <nav class="Main" >
             
             <ul>   
                 <li class="active"> <a href=# > Login </a></li>
@@ -31,7 +31,7 @@
            
             </ul>             
        
-    </Nav>
+    </nav>
       
 
     <h1 class="login"> Login Page </h1>
@@ -40,29 +40,21 @@
     
     <!--Nav-->
    
-    <p class="username">
+    <form id="login">
 
-        <label>
+    <div class="input">
+    <label for="usrName">User Name</label>
+    <input type="text" name="usrName">
+    </div>
 
-            Username: 
+    <div class="input">
+    <label for="usrPass">Password</label>
+    <input type="password" name="usrPass">
+    </div>
 
-            <input type="text" name="txtFullName" required> 
+    <input type="submit" value="Submit">
 
-
-        </label>
-
-    </p>
-
-    <p class="password">
-
-        <label>
-
-            <label for="userPassword">Password: </label>
-            <input id="userPassword" type="password">
-
-        </label>
-    </p>
-<input class="submit" type="submit">
+    </form>
    
 <footer>
 
