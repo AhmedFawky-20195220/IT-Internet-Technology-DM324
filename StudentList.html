@@ -3,7 +3,28 @@
     <head>
 
       <title> Internet Technology </title>
-      <link rel="stylesheet" type="text/css" href="Style.css">  
+
+
+      <link rel="stylesheet" type="text/css" href="Style.css"> 
+
+
+     
+     
+        <script> 
+
+     
+             var datasource=[["20194373" , "boda" , "20194373@fue.edu.eg","url or image id"],
+
+     
+             ["20195220" , "fawky" , "20195220@fue.edu.eg","url or image id"]];
+
+     
+            //document.writeln("<h1>heading </h1>");
+
+     
+        </script>
+
+
     </head>
     
     
@@ -42,73 +63,160 @@
            
             </nav>   
         
-        <!--Nav-->
 
-    
-        <!-- Body -->
-       <h1 class="studenttable"> Student List</h1>
+            <h1 class="studenttable"> Student List</h1>
+        
+                <!--Nav-->
+
+       
+       
+           
+      </script>
+            </head>
+            <body>
+            <body onload="intin();">
+       
+        </nav>
+        <hr>
+        <section>
+            <div class="searchbar">
+                <p>
+                    <input type="search" class id="txtSearch" oninput="mySearch()">
+                </p>
+            </div>
+            <div id="myTable"> </div>
+            <table border="4"><thead>
+                <tr>
+                    <td>name</td>
+                    <td>id</td>
+                    <td>Email</td>
+                    <td>Photo</td>
+                </tr>
+                <tr>
+                    <tbody>
+                    <td>Ahmed Mohamed fawky</td>
+                    <td >20195220 </td>
+                    <td>20195220@fue.edu.eg</td>
+                    <td><img src="logo.jpg" alt="pic" width=100 height=100></td></tr>
+                    <tr>
+                    <td>boda</td>
+                    <td >20197774 </td>
+                    <td>2019774@fue.edu.eg</td>
+                    <td><img src="logo.jpg" alt="pic" width=100 height=100></td>
+                </tr>
+           <tfoot><tr><td colspan=4>total no. of student= 2</td></tr></tfoot></thead></table>
+            </body>
+          
+            <script>
+                function init()
+            {
+                 var table = "";
+                 table = table + "<table border='4'>" + 
+                    "<thead>" +
+                  "<tr>"+
+                       "<td> ID </td>"+
+                       "<td> Name </td>"+ 
+                       "<td> Email </td>"+ 
+                       "<td> image </td>"+
+                    "</tr>"+
+                "</thead>"+
+                "<tbody>";
+                //body part
+                var counter = 0; //count number of students
+                for(var i=0; i<dataSource.length; i++)
+                {
+                    var StudentID = dataSource[i][0];
+                    var StudentName = dataSource[i][1];
+                    var StudentEmail = dataSource[i][2];
+                    var StudentPhoto = dataSource[i][3];
+                    table += "<tr>";
+                        table += "<td>"+ StudentId +"</td>";
+                        table += "<td>"+ StudentName +"</td>";
+                        table += "<td>"+ StudentEmail +"</td>";
+                        table += "<td>"+ Studentimage +"</td>";
+                    table += "</tr>";
+                    counter++;
+                }
+                table += "</tbody>"+
+                "</foot>"+
+                    "<tr>"+
+                        "<td colspan='4'> Sudent Number=" + counter +"</td>"+
+                    "</tr>"+
+                "</tfoot>"+
+            "</table>";
+                document.getElementById("myTable").innerHTML = table;                
+            }
+            function mySearch()
+            {
+                var input = document.getElementById("txtSearch").value;
+                console.log(input);
+                searchAlgorithm(input);
+            }
+            function searchAlgorithm(input)
+            {
+                var flat = [].concat.apply([],dataSource);
+                console.log(flat);
+                var col = flat.indexof(input);
+                console.log(col);
+                var row = -1;
+                if(col != -1)
+                {
+                    while(dataSource[++row].length <= col)
+                    {
+                        col = col - dataSource[row].length;
+                    }
+                    //return row; //return for array but didn't draw yet
+                    drawResultTable(row);
+                } 
+                else
+                {
+                    int();
+                }
+                function drawResultTable(row)
+                {
+                    var table = "";
+                table = table + "<table border='4'>"+
+                         "thead>"+
+                         "<tr>"+
+                            "<td> ID </td>"+
+                            "<td> Name </td>"+
+                            "<td> Email </td>"+
+                            "<td> image </td>"+
+                        "</tr>"+
+                    "</thead>"+
+                    
+                    "<tbody>";
+                        //body part
+                        var counter = 0;
+                        var StudentID = dataSource[row][0];
+                        var StudentName = dataSource[row][1];
+                        var StudentEmail = dataSource[row][2];
+                        var Studentimage = dataSource[row][3];
+                        table += "<tr>";
+                            table += "<td>"+ StudentID +"</td>";
+                            table += "<td>"+ StudentName +"</td>";
+                            table += "<td>"+ StudentEmail +"</td>";
+                            table += "<td>"+ Studentimage +"</td>";
+                        table += "</tr>";
+                        counter ++;
+                    table += "</tbody>"+
+                    "<tfoot>"+
+                        "<tr>"+
+                            "<td colspan='4'> Student Number=" + counter +" </td>"+
+                        "</tr>"+
+                    "</tfoot>"+
+                    "</table>";
+                    document.getElementById("myTable").innerHTML = table;
+                }
+            }
+        
+            </script>    
+        
+                <!-- Body -->
+       
+               
           
 
-        <table border='1'>
-           
-    
-            <thead> 
-                <tr>
-                  
-                    <th> Name </th>
-                    <th> ID </th>
-                    <th> Email </th>
-                    <th> Photo </th>
-               
-                </tr>
-            </thead>
-        
-            <tbody>
-            
-                <tr>
-                    
-                    <td> Ahmed Mohamed Fawky Ahmed </td>
-                    <td> 20195220 </td>
-                    <td> 20195220@fue.edu.eg </td>
-                    <td> <img src= "wolve Picture.jpg" alt= "Wolve picture" width=130 length=130 >  </td>
-                
-               
-                </tr>
-
-               
-                <tr> 
-                    
-                    <td colspan="2">
-             
-                        <ul>
-                              
-                            <li>Abdelrahman Ahmed  </li>
-                            <li>20192341</li>
-                             
-                         </ul>
-
-                    </td>
-                    
-                    <td> 20191111@fue.edu.eg </td>
-                    <td> <img src= "wolve Picture.jpg" alt= "Wolve picture"width=130 length=130 >  </td>
-                
-                </tr>
-             
-            </tbody>
-           
-           
-             
-            <tfoot>
-                 
-                <tr>
-                    
-                    <td colspan=4> Number of students:  </td>
-                </tr>
-
-             </tfoot>
-
-      
-        </table>
 
         <!--Body -->
     
@@ -121,7 +229,7 @@
     <footer>
              
         <a href=https://www.fue.edu.eg/ target=_Blank > &copy; Future University </a>
-        <a href=mailto: 20194813@fue.edu.eg > Contact us </a>
+        <a href=mailto: 20195220@fue.edu.eg > Contact us </a>
         
 
     </footer>
